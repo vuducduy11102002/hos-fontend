@@ -1,0 +1,10 @@
+@import './pages/body.scss';
+@import './pages/sidenav.scss';
+@import './pages/header.scss';
+@import './pages/calendar.scss';
+@import './pages/tabletime.scss';
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+body {
+    background-color: #f4f7fa;
+}
