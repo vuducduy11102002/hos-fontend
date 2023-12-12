@@ -15,7 +15,7 @@ import {
 } from '@angular/animations';
 import { INavbarData } from './helper';
 import { Router } from '@angular/router';
-import { LocalstorageService } from 'libs/user/src/lib/services/localstorage.service';
+import { LocalstorageService } from '@hospital/user';
 
 interface SideNavToggle {
   screenWidth: number;

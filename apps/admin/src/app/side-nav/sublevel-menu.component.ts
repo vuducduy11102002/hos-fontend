@@ -8,7 +8,7 @@ import {
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { fadeInOut, INavbarData } from './helper';
-import { LocalstorageService } from 'libs/user/src/lib/services/localstorage.service';
+import { LocalstorageService } from '@hospital/user';
 
 @Component({
   selector: 'hospital-sublevel-menu',
