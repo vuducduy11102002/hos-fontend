@@ -12,41 +12,53 @@ import { ListAppointmentComponent } from './pages/appointment/list/list.componen
 import { CalendarComponent } from './pages/appointment/scheduler-candeler/calender.component';
 import { TabletimeComponent } from './pages/appointment/table-time/tabletime.component';
 import { ListAppointmentRequestComponent } from './pages/appointment/request-appointment/list.component';
+import { notfoundRoutes } from '@hospital/not-found';
+import { AuthGuard, AuthGuardAdmin, AuthGuardUser } from '@hospital/user';
 
 export const appRoutes: Route[] = [
-    // { path: '', redirectTo: 'dashbroad', pathMatch: 'full' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 
-    { path: 'dashbroad', component: DashboardComponent },
-    {
-        path: 'patient',
-        component: PatientComponent,
-        children: [
-            { path: 'list', component: ListPatientComponent },
-            { path: 'create', component: CreatePatientComponent },
-            { path: 'edit/:id', component: CreatePatientComponent }
-        ]
-    },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'patient',
+    component: PatientComponent,
+    canActivate: [AuthGuardUser],
+    children: [
+      { path: 'list', component: ListPatientComponent },
+      { path: 'create', component: CreatePatientComponent },
+      { path: 'edit/:id', component: CreatePatientComponent },
+    ],
+  },
 
-    {
-        path: 'doctor',
-        component: DoctorComponent,
-        children: [
-            { path: 'list', component: ListDoctorComponent },
-            { path: 'create', component: CreateDoctorComponent },
-            { path: 'edit/:id', component: CreateDoctorComponent }
-        ]
-    },
+  {
+    path: 'doctor',
+    component: DoctorComponent,
+    canActivate: [AuthGuardAdmin],
+    children: [
+      { path: 'list', component: ListDoctorComponent },
+      { path: 'create', component: CreateDoctorComponent },
+      { path: 'edit/:id', component: CreateDoctorComponent },
+    ],
+  },
 
-    {
-        path: 'appointment',
-        component: AppointmentComponent,
-        children: [
-            { path: 'list', component: ListAppointmentComponent },
-            { path: 'create', component: CreateAppointmentComponent },
-            { path: 'calendar', component: CalendarComponent },
-            { path: 'edit/:id', component: CreateAppointmentComponent },
-            { path: 'tabletime', component: TabletimeComponent },
-            { path: 'requestappointment', component: ListAppointmentRequestComponent }
-        ]
-    }
+  {
+    path: 'appointment',
+    component: AppointmentComponent,
+    children: [
+      { path: 'list', component: ListAppointmentComponent },
+      { path: 'create', component: CreateAppointmentComponent },
+      { path: 'calendar', component: CalendarComponent },
+      { path: 'edit/:id', component: CreateAppointmentComponent },
+      { path: 'tabletime', component: TabletimeComponent },
+      {
+        path: 'requestappointment',
+        component: ListAppointmentRequestComponent,
+      },
+    ],
+  },
+  ...notfoundRoutes,
 ];

@@ -5,7 +5,13 @@ import { RouterModule } from '@angular/router';
 import { userRoutes } from './user.routes';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
-    imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule.forChild(userRoutes)],
-    declarations: [LoginComponent]
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forChild(userRoutes),
+  ],
+  declarations: [LoginComponent],
+  providers: [],
 })
 export class LibsUserModule {}

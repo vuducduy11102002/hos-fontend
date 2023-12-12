@@ -18,6 +18,7 @@
       "@env/*": ["environments/*"],
       "@hospital/libs/home-page": ["libs/home-page/src/index.ts"],
       "@hospital/libs/services": ["libs/services/src/index.ts"],
+      "@hospital/not-found": ["libs/not-found/src/index.ts"],
       "@hospital/ui": ["libs/ui/src/index.ts"],
       "@hospital/user": ["libs/user/src/index.ts"]
     }

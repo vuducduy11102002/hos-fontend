@@ -5,14 +5,17 @@ import { User } from '../models/user';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-    apiURLAuth = environment.apiURL + 'user';
+  apiURLAuth = environment.apiURL + 'user';
 
-    constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-    login(email: string, password: string): Observable<User> {
-        return this.http.post<User>(`${this.apiURLAuth}/login`, { email, password });
-    }
+  login(email: string, password: string): Observable<User> {
+    return this.http.post<User>(`${this.apiURLAuth}/login`, {
+      email,
+      password,
+    });
+  }
 }
