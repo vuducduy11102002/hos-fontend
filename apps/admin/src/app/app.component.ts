@@ -27,7 +27,9 @@ export class AppComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         const isLoginRoute =
           this.activatedRoute.snapshot.firstChild?.routeConfig?.path ===
-          'login';
+            'login' ||
+          this.activatedRoute.snapshot.firstChild?.routeConfig?.path ===
+            'authentication';
         const isNotFoundRoute =
           this.activatedRoute.snapshot.firstChild?.routeConfig?.path === '**';
         this.shouldShowComponents = !isLoginRoute && !isNotFoundRoute;

@@ -43,7 +43,7 @@ export const navbarData: INavbarData[] = [
     routeLink: 'appointment',
     icon: 'fi fi-rr-calendar-clock',
     label: 'Appointment',
-    role: 'admin',
+    role: ['admin', 'user'],
     items: [
       {
         routeLink: 'appointment/list',

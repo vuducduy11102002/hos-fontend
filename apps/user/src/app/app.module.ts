@@ -26,5 +26,6 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [HomePageComponent],
 })
 export class AppModule {}

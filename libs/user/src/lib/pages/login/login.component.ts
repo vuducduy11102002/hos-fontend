@@ -59,15 +59,17 @@ export class LoginComponent implements OnInit {
     this.auth.login(logindata.email, logindata.password).subscribe(
       (user) => {
         this.authError = false;
+        console.log(user);
 
         // Assuming user object has properties 'token' and 'role'
-        this.localstorageService.setTokenAndRole({
-          token: user.token,
-          role: user.role,
-        });
+        // this.localstorageService.setTokenAndRole({
+        //   token: user.token,
+        //   role: user.role,
+        // });
+        this.auth.setEmail(logindata.email);
 
         // Navigate to your desired route
-        this.router.navigate(['/']);
+        this.router.navigate(['/authentication']);
       },
       (error: HttpErrorResponse) => {
         this.authError = true;

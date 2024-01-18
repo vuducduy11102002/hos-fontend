@@ -10,4 +10,6 @@ export class User {
   passwordResetToken?: string;
   passwordResetExpires?: Date;
   token!: string;
+  rememberMe!: boolean;
+  otp!: string;
 }

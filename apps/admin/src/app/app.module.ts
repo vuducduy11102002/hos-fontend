@@ -18,13 +18,21 @@ import { ListPatientComponent } from './pages/patient/list/list.component';
 import { CreatePatientComponent } from './pages/patient/create/create.component';
 import { CreateDoctorComponent } from './pages/doctor/create/create.component';
 import { ListDoctorComponent } from './pages/doctor/list/list.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateAppointmentComponent } from './pages/appointment/create/create.component';
 import { ListAppointmentComponent } from './pages/appointment/list/list.component';
 import { AppointmentModule } from './pages/appointment/appointments.module';
 import { ListAppointmentRequestComponent } from './pages/appointment/request-appointment/list.component';
-import { LibsUserModule } from '@hospital/user';
+import { JwtInterceptor, LibsUserModule } from '@hospital/user';
+import { NotificationComponent } from './side-nav/notification.component';
+import { ChartBarComponent } from './chart/chart-bar/bar.component';
+import { ChartPieComponent } from './chart/chart-pie/pie.component';
+import { ChartVerticalBarComponent } from './chart/vertical-bar/vertical.component';
+import { ChartComboComponent } from './chart/chart-combo/combo.component';
+import { UpcomingComponent } from './dashboard/upcoming-appointment/upcoming.component';
+import { ChartMultiAxisComponent } from './chart/chart-multiaxis/multiaxis.component';
+import { ChartRadarComponent } from './chart/chart-radar/radar.component';
 // Component PRIMENG
 import { ToolbarModule } from 'primeng/toolbar';
 import { CardModule } from 'primeng/card';
@@ -41,7 +49,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DialogModule } from 'primeng/dialog';
 import { SidebarModule } from 'primeng/sidebar';
-import { NotificationComponent } from './side-nav/notification.component';
+import { ChartModule } from 'primeng/chart';
 
 const UX_MODULE = [
   CardModule,
@@ -57,6 +65,7 @@ const UX_MODULE = [
   ConfirmDialogModule,
   DialogModule,
   SidebarModule,
+  ChartModule,
 ];
 
 @NgModule({
@@ -78,6 +87,13 @@ const UX_MODULE = [
     CreateAppointmentComponent,
     ListAppointmentRequestComponent,
     NotificationComponent,
+    ChartBarComponent,
+    ChartPieComponent,
+    ChartVerticalBarComponent,
+    ChartComboComponent,
+    UpcomingComponent,
+    ChartMultiAxisComponent,
+    ChartRadarComponent,
   ],
   imports: [
     ...UX_MODULE,
@@ -93,7 +109,12 @@ const UX_MODULE = [
     //Login
     LibsUserModule,
   ],
-  providers: [PatientService, MessageService, ConfirmationService],
+  providers: [
+    PatientService,
+    MessageService,
+    ConfirmationService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
   exports: [
     BodyComponent,

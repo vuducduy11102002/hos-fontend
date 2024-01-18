@@ -48,6 +48,7 @@ export const appRoutes: Route[] = [
   {
     path: 'appointment',
     component: AppointmentComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: 'list', component: ListAppointmentComponent },
       { path: 'create', component: CreateAppointmentComponent },

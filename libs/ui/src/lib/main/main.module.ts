@@ -13,11 +13,41 @@ import { ToastModule } from 'primeng/toast';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { RouterModule } from '@angular/router';
+import { Routes } from '../ui.routes';
 
-const UX_MODULE = [CalendarModule, ToastModule, InputTextModule, DropdownModule];
+const UX_MODULE = [
+  CalendarModule,
+  ToastModule,
+  InputTextModule,
+  DropdownModule,
+];
 @NgModule({
-    imports: [CommonModule, ...UX_MODULE, BrowserAnimationsModule, FormsModule, ReactiveFormsModule],
-    declarations: [BannerComponent, MainComponent, OurServiceComponent, OurBlogComponent, ArticleComponent, BookpointmentComponent, CalendarComponent],
-    exports: [BannerComponent, MainComponent, OurServiceComponent, OurBlogComponent, ArticleComponent]
+  imports: [
+    CommonModule,
+    ...UX_MODULE,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forChild(Routes),
+  ],
+  declarations: [
+    BannerComponent,
+    MainComponent,
+    OurServiceComponent,
+    OurBlogComponent,
+    ArticleComponent,
+    BookpointmentComponent,
+    CalendarComponent,
+    AboutUsComponent,
+  ],
+  exports: [
+    BannerComponent,
+    MainComponent,
+    OurServiceComponent,
+    OurBlogComponent,
+    ArticleComponent,
+  ],
 })
 export class MainModule {}

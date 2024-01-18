@@ -8,10 +8,15 @@ import { Routes } from './ui.routes';
 import { MessageService } from 'primeng/api';
 
 @NgModule({
-    imports: [CommonModule, MainModule, BrowserModule, RouterModule.forRoot(Routes)],
-    declarations: [HomePageComponent],
-    exports: [HomePageComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    providers: [MessageService]
+  imports: [
+    CommonModule,
+    MainModule,
+    BrowserModule,
+    RouterModule.forRoot(Routes),
+  ],
+  declarations: [HomePageComponent],
+  exports: [HomePageComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [MessageService],
 })
 export class UiModule {}
