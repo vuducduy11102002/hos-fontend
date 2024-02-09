@@ -1,0 +1,43 @@
+<div class="list-predict">
+  <div class="timetable">
+    <div class="date-pickle">
+      <input type="date" [(ngModel)]="selectedDate" (change)="dateSelected()" />
+    </div>
+    <div class="controls">
+      <button (click)="previousDay()">Previous</button>
+      <button (click)="nextDay()">Next</button>
+    </div>
+    <div class="controls">
+      <button (click)="setDayOfWeek(0)">Monday</button>
+      <button (click)="setDayOfWeek(1)">Tuesday</button>
+      <button (click)="setDayOfWeek(2)">Wednesday</button>
+      <button (click)="setDayOfWeek(3)">Thursday</button>
+      <button (click)="setDayOfWeek(4)">Friday</button>
+      <button (click)="setDayOfWeek(5)">Saturday</button>
+      <button (click)="setDayOfWeek(6)">Sunday</button>
+    </div>
+
+    <div class="predict-table">
+      <ng-container *ngFor="let predictItem of predict">
+        <div
+          class="predict-out_come"
+          [ngStyle]="{
+            color: 'black',
+            'background-color':
+              predictItem.out_come?.[0] === 1 ? 'lightpink' : 'lightblue'
+          }"
+        >
+          <div class="patientName">
+            patientName: {{ predictItem.patientName }}
+          </div>
+          <div class="predict">predict: {{ predictItem.out_come }}</div>
+          <div class="datevtime">
+            date: {{ predictItem.createdAt | date : 'yyyy-MM-dd' }}
+            <br />
+            time: {{ predictItem.createdAt | date : 'hh:mm:ss' }}
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+.list-predict {
+  .timetable {
+    margin: 0px 0px 0px 60px;
+  }
+
+  .controls {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .controls button {
+    margin: 0 5px;
+  }
+  .predict-table {
+    border-radius: 10%;
+    padding-left: 30px;
+    background-color: white;
+    width: 1100px;
+
+    .predict-out_come {
+      border-radius: 20%;
+      padding: 10px;
+      margin: 10px;
+      display: inline-block;
+    }
+  }
+}

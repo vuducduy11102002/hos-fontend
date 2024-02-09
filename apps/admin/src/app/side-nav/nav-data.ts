@@ -67,4 +67,15 @@ export const navbarData: INavbarData[] = [
       },
     ],
   },
+  {
+    routeLink: 'predict',
+    icon: 'fi fi-rr-book-open-cover',
+    label: 'Predict Disease',
+    items: [
+      {
+        routeLink: 'predict/list-predict',
+        label: 'List Predict',
+      },
+    ],
+  },
 ];

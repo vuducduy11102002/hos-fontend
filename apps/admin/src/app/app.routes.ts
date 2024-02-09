@@ -14,6 +14,8 @@ import { TabletimeComponent } from './pages/appointment/table-time/tabletime.com
 import { ListAppointmentRequestComponent } from './pages/appointment/request-appointment/list.component';
 import { notfoundRoutes } from '@hospital/not-found';
 import { AuthGuard, AuthGuardAdmin, AuthGuardUser } from '@hospital/user';
+import { PredictComponent } from './pages/predict/predict.component';
+import { ListPredictComponent } from './pages/predict/list-predict/list-predict.component';
 
 export const appRoutes: Route[] = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -60,6 +62,11 @@ export const appRoutes: Route[] = [
         component: ListAppointmentRequestComponent,
       },
     ],
+  },
+  {
+    path: 'predict',
+    component: PredictComponent,
+    children: [{ path: 'list-predict', component: ListPredictComponent }],
   },
   ...notfoundRoutes,
 ];

@@ -33,6 +33,7 @@ import { ChartComboComponent } from './chart/chart-combo/combo.component';
 import { UpcomingComponent } from './dashboard/upcoming-appointment/upcoming.component';
 import { ChartMultiAxisComponent } from './chart/chart-multiaxis/multiaxis.component';
 import { ChartRadarComponent } from './chart/chart-radar/radar.component';
+import { PredictComponent } from './pages/predict/predict.component';
 // Component PRIMENG
 import { ToolbarModule } from 'primeng/toolbar';
 import { CardModule } from 'primeng/card';
@@ -50,6 +51,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DialogModule } from 'primeng/dialog';
 import { SidebarModule } from 'primeng/sidebar';
 import { ChartModule } from 'primeng/chart';
+import { PredictModule } from './pages/predict/predict.module';
 
 const UX_MODULE = [
   CardModule,
@@ -94,6 +96,7 @@ const UX_MODULE = [
     UpcomingComponent,
     ChartMultiAxisComponent,
     ChartRadarComponent,
+    PredictComponent,
   ],
   imports: [
     ...UX_MODULE,
@@ -105,6 +108,7 @@ const UX_MODULE = [
     FormsModule,
     ReactiveFormsModule,
     AppointmentModule,
+    PredictModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     //Login
     LibsUserModule,

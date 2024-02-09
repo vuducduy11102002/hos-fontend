@@ -11,3 +11,6 @@ export * from './lib/models/appointment';
 //appointment-request
 export * from './lib/services/appointment-request.service';
 export * from './lib/models/request-appointment';
+// predict
+export * from './lib/services/predict.service';
+export * from './lib/models/predict';

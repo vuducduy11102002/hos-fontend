@@ -7,11 +7,11 @@ import { TabletimeComponent } from './table-time/tabletime.component';
 // Component angular calender
 
 @NgModule({
-    declarations: [CalendarComponent, TabletimeComponent],
-    imports: [CalendarModule, CommonModule],
-    providers: [],
-    bootstrap: [],
-    exports: [],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  declarations: [CalendarComponent, TabletimeComponent],
+  imports: [CalendarModule, CommonModule],
+  providers: [],
+  bootstrap: [],
+  exports: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppointmentModule {}
